@@ -14,3 +14,7 @@
 Route::get('/', 'LandingPageController@index');
 Route::get('/contact-us', 'LandingPageController@contact');
 Route::get('/become-member', 'LandingPageController@memberRegistration');
+
+Auth::routes();
+
+Route::get('/admin/dashboard', 'AdminController@index')->name('home');
