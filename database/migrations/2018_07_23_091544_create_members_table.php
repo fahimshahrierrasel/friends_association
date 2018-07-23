@@ -30,6 +30,9 @@ class CreateMembersTable extends Migration
             $table->string('mobileNo', 15);
             $table->string('email', 100);
             $table->string('image', 255);
+            $table->boolean("status")->default(0);
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
