@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     //
+    protected $fillable = [
+        'nid', 'name', 'father_name', 'mother_name', 'hus_wife_name', 'present_address', 'permanent_address', 'dob',
+        'education', 'nationality', 'gender', 'blood_group', 'mobile_no', 'email', 'image', 'status', 'user_id'
+    ];
 
     public function nominee()
     {
