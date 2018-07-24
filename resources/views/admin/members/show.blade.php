@@ -97,7 +97,8 @@
         </div>
         <div class="col-lg-3">
             <div class="panel panel-default">
-                <img src="{{ url('/images/member/profile_image') }}/{{ $member->image }}" class="img-responsive" style="width: 400px;"
+                <img src="{{ url('/images/member/profile_image') }}/{{ $member->image }}" class="img-responsive"
+                     style="width: 400px;"
                      alt="Member Image">
                 <!-- /.panel-body -->
             </div>
@@ -108,11 +109,32 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body text-center">
                     @if($member->status == "0")
-                        <a href="{{ url('/admin/member/active') }}/{{ $member->id }}" class="btn btn-outline btn-block btn-primary">Active</a>
+                        {{--Form and Link to active an active member--}}
+                        <a href="{{ route('make-active') }}" class="btn btn-outline btn-block btn-primary"
+                           onclick="event.preventDefault(); document.getElementById('active-form').submit();">
+                            Active
+                        </a>
+                        <form id="active-form" action="{{ route('make-active') }}" method="POST"
+                              style="display: none;">
+                            @csrf
+                            <input name="id" value="{{ $member->id }}">
+                        </form>
                     @else
-                        <a href="{{ url('/admin/member/inactive') }}/{{ $member->id }}" class="btn btn-outline btn-block btn-primary">Inactive</a>
-                        <a href="{{ url('/admin/member/edit') }}/{{ $member->id }}" class="btn btn-outline btn-block btn-warning" style="margin-top: 5px">Edit</a>
-                        <a href="{{ url('/admin/member/installment') }}/{{ $member->id }}" class="btn btn-outline btn-block btn-success" style="margin-top: 5px">Installment</a>
+                        {{--Form and Link to inactive an active member--}}
+                        <a href="{{ route('make-inactive') }}" class="btn btn-outline btn-block btn-danger"
+                           onclick="event.preventDefault(); document.getElementById('inactive-form').submit();">
+                            Inactive
+                        </a>
+                        <form id="active-form" action="{{ route('make-inactive') }}" method="POST"
+                              style="display: none;">
+                            @csrf
+                            <input name="id" value="{{ $member->id }}">
+                        </form>
+
+                        <a href="{{ url('/admin/member/edit') }}/{{ $member->id }}"
+                           class="btn btn-outline btn-block btn-warning" style="margin-top: 5px">Edit</a>
+                        <a href="{{ url('/admin/member/installment') }}/{{ $member->id }}"
+                           class="btn btn-outline btn-block btn-success" style="margin-top: 5px">Installment</a>
                     @endif
                 </div>
                 <!-- /.panel-body -->

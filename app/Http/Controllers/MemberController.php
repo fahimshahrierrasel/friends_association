@@ -68,6 +68,36 @@ class MemberController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function active(Request $request)
+    {
+        $member = Member::findOrFail($request->id);
+        $member->status = 1;
+        $member->save();
+        return redirect()->route('registered-members');
+    }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function inactive(Request $request)
+    {
+        $member = Member::findOrFail($request->id);
+        $member->status = 0;
+        $member->save();
+        return redirect()->route('member-requests');
+    }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
