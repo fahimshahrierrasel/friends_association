@@ -60,7 +60,9 @@ class MemberController extends Controller
      */
     public function show($id)
     {
-        //
+        $member = Member::findOrFail($id);
+        $title = $member->name;
+        return view('admin.members.show', compact('title', 'member'));
     }
 
     /**

@@ -32,7 +32,7 @@
                         <tbody>
                         @foreach($members as $member)
                             <tr>
-                                <td><a href="{{ url('/admin/member/') }}/{{ $member->id }}">{{ $member->name }}</a></td>
+                                <td><a href="{{ url('/admin/member') }}/{{ $member->id }}">{{ $member->name }}</a></td>
                                 <td>{{ $member->father_name }}</td>
                                 <td>{{ $member->dob }}</td>
                                 <td>{{ $member->profession }}</td>
