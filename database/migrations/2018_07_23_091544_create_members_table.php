@@ -15,7 +15,7 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nid', 30);
+            $table->string('nid', 30)->unique();
             $table->string('name', 200);
             $table->string('father_name', 200);
             $table->string('mother_name', 200);
@@ -26,10 +26,11 @@ class CreateMembersTable extends Migration
             $table->string('education', 200);
             $table->string('nationality', 30);
             $table->string('gender', 10);
+            $table->string('profession', 100);
             $table->string('blood_group', 5)->nullable();
             $table->string('mobile_no', 15);
             $table->string('email', 100)->nullable();
-            $table->string('image', 255);
+            $table->string('image', 255)->nullable();
             $table->boolean("status")->default(0);
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
