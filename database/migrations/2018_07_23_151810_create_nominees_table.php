@@ -15,7 +15,7 @@ class CreateNomineesTable extends Migration
     {
         Schema::create('nominees', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nid',30);
+            $table->string('nid',20);
             $table->string('name', 200);
             $table->string('father_name', 200);
             $table->string('mother_name', 200);

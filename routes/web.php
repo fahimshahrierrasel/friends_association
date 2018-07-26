@@ -21,7 +21,6 @@ Auth::routes();
 Route::get('/admin/dashboard', 'AdminController@index')->name('home');
 
 // Member Routes
-Route::get('/become-member', 'LandingPageController@memberRegistration');
 Route::get('/admin/member-requests', 'MemberController@memberRequests')->name('member-requests');
 Route::get('/admin/registered-members', 'MemberController@registeredMembers')->name('registered-members');
 Route::get('/admin/member/{id}', 'MemberController@show');

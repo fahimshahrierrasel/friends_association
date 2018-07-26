@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Member;
 
 use App\Member;
+use App\Nominee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,8 +13,8 @@ class MemberRegistrationController extends Controller
     public function memberRegistrationShow(Request $request)
     {
         $member = $request->session()->get('member');
-        $nominee = $request->session()->get('nominee');
-        return view('landing.member_reg_info',compact('member','nominee'));
+//        $nominee = $request->session()->get('nominee');
+        return view('landing.member_reg_info',compact('member'));
     }
     public function memberRegistrationStore(Request $request)
     {
@@ -50,42 +51,41 @@ class MemberRegistrationController extends Controller
     }
     public function nomineeRegistrationShow(Request $request)
     {
-        $member = $request->session()->get('member');
+        if(empty($request->session()->get('member'))){
+            return redirect()->to('/member-reg-info');
+        }
+//        $member = $request->session()->get('member');
         $nominee = $request->session()->get('nominee');
-        return view('landing.memberreg_second',compact('member','nominee'));
+        return view('landing.nominee_reg_info',compact('nominee'));
     }
     public function nomineeRegistrationStore(Request $request)
     {
         $validatedData = $request->validate([
-            'nid' => 'required|unique:members|numeric',
-            'name' => 'required|max:50',
-            'father_name' => 'required|max:50',
-            'mother_name' => 'required|max:50',
-            'hus_wife_name' => 'nullable|max:30',
-            'present_address' => 'required|max:250',
-            'permanent_address' => 'required|max:250',
+            'nid' => 'required|unique:members|max:20',
+            'name' => 'required|min:4',
+            'father_name' => 'required|min:4',
+            'mother_name' => 'required|min:4',
+            'address' => 'required',
             'dob' => 'required|date',
-            'education' => 'required|max:250',
-            'nationality' => 'required|max:30',
+            'relation' => 'required|max:30',
             'profession' => 'required|max:30',
-            'gender' => 'required',
-            'blood_group' => 'required',
-            'mobile_no' => 'required|numeric',
-            'email' => 'required|email',
-
+            'mobile_no' => 'required|min:11|max:11',
         ]);
 
-        if(empty($request->session()->get('member'))){
-            $member= new Member();
-            $member->fill($validatedData);
-            $request->session()->put('member', $member);
+        if(empty($request->session()->get('nominee'))){
+            $nominee= new Nominee();
+            $nominee->fill($validatedData);
+            $request->session()->put('nominee', $nominee);
         }else{
-            $member = $request->session()->get('member');
-            $member->fill($validatedData);
-            $request->session()->put('member', $member);
+            $nominee = $request->session()->get('nominee');
+            $nominee->fill($validatedData);
+            $request->session()->put('nominee', $nominee);
         }
 
-        return redirect('/become-member-2');
+        return redirect('/member-image');
+    }
 
+    public function memberImageShow(Request $request) {
+        return view();
     }
 }
