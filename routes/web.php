@@ -27,3 +27,13 @@ Route::get('/admin/registered-members', 'MemberController@registeredMembers')->n
 Route::get('/admin/member/{id}', 'MemberController@show');
 Route::post('/admin/member/active', 'MemberController@active')->name('make-active');
 Route::post('/admin/member/inactive', 'MemberController@inactive')->name('make-inactive');
+
+//Member Registration Multi page Form
+Route::get('/become-member-1','MemberController@memberRegistrationFirstShow');
+Route::post('/become-member-1','MemberController@memberRegistrationFirstStore');
+
+Route::get('/become-member-2','MemberController@memberRegistrationSecondShow');
+Route::post('/become-member-2','MemberController@memberRegistrationSecondStore');
+
+Route::get('/become-member-3','MemberController@memberRegistrationThirdShow');
+Route::post('/become-member-3','MemberController@memberRegistrationThirdStore');
