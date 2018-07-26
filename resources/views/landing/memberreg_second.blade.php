@@ -24,7 +24,6 @@
                     <!-- One full width row-->
                     <div class="column one column_fancy_heading">
                         <div class="fancy_heading fancy_heading_icon">
-                            <h2 class="title">We work from Monday till Friday from 8:00 a.m. to 7:00 p.m.</h2>
                             <h3>Part 1: Member Information</h3>
                         </div>
                     </div>
@@ -38,44 +37,44 @@
                                         {{ csrf_field() }}
                                         <div class="column one">
                                             <input placeholder="Nominee's National Identification Number (NID) / নমিনীর জাতীয় পরিচিতি নাম্বার" type="text" name="nid"
-                                                   size="40" aria-required="true" aria-invalid="false" value="{{$member->nid or ''}}"/>
+                                                   size="40" aria-required="true" aria-invalid="false" value="{{$nominee->nid or ''}}"/>
                                         </div>
                                         <div class="column one">
-                                            <input placeholder="Nominee's  name / নমিনীর নাম" type="text" name="nomineename"
-                                                   size="40" aria-required="true" aria-invalid="false"/>
+                                            <input placeholder="Nominee's  name / নমিনীর নাম" type="text" name="name"
+                                                   size="40" aria-required="true" aria-invalid="false" value="{{$nominee->name or ''}}"/>
                                         </div>
                                         <div class="column one">
-                                            <input placeholder="Nominee's Father name / নমিনীর পিতার নাম" type="text" name="nomineefathername"
-                                                   size="40" aria-required="true" aria-invalid="false"/>
+                                            <input placeholder="Nominee's Father name / নমিনীর পিতার নাম" type="text" name="father_name"
+                                                   size="40" aria-required="true" aria-invalid="false" value="{{$nominee->father_name or ''}}"/>
                                         </div>
                                         <div class="column one">
-                                            <input placeholder="Nominee's Mother name / নমিনীর মাতার নাম" type="text" name="nomineemothername"
-                                                   size="40" aria-required="true" aria-invalid="false"/>
+                                            <input placeholder="Nominee's Mother name / নমিনীর মাতার নাম" type="text" name="mother_name"
+                                                   size="40" aria-required="true" aria-invalid="false" value="{{$nominee->mother_name or ''}}"/>
                                         </div>
                                         <div class="column one">
-                                        <textarea placeholder="Nominee's Address / নমিনীর ঠিকানা" type="text" name="nomineeaddress"
-                                                  style="width:100%;" rows="10" aria-invalid="false"></textarea>
+                                        <textarea placeholder="Nominee's Address / নমিনীর ঠিকানা" type="text" name="address"
+                                                  style="width:100%;" rows="5" aria-invalid="false" value="{{$nominee->address or ''}}"></textarea>
                                         </div>
                                         <div class="column one">
-                                            <input placeholder="Nominee's Date Of Birth / নমিনীর জন্ম তারিখ" type="text" name="nomineedateofbirth"
-                                                   size="40" aria-required="true" aria-invalid="false"/>
+                                            <input placeholder="Nominee's Date Of Birth / নমিনীর জন্ম তারিখ" type="date" name="dob"
+                                                   size="40" aria-required="true" aria-invalid="false" value="{{$nominee->dob or ''}}"/>
                                         </div>
                                         <div class="column one">
-                                            <input placeholder="Relation with Nominee / নমিনীর সাথে সম্পর্ক" type="text" name="nomineeeducation"
-                                                   size="40" aria-required="true" aria-invalid="false"/>
+                                            <input placeholder="Relation with Nominee / নমিনীর সাথে সম্পর্ক" type="text" name="realation"
+                                                   size="40" aria-required="true" aria-invalid="false" value="{{$nominee->relation or ''}}"/>
                                         </div>
                                         <div class="column one">
-                                            <input placeholder="Nominee's Profession / নমিনীর পেশা" type="text" name="nomineeprofession"
-                                                   size="40" aria-required="true" aria-invalid="false"/>
+                                            <input placeholder="Nominee's Profession / নমিনীর পেশা" type="text" name="profession"
+                                                   size="40" aria-required="true" aria-invalid="false" value="{{$nominee->profession or ''}}"/>
                                         </div>
                                         <div class="column one">
-                                            <input placeholder="Nominee's Mobile / নমিনীর মোবাইল" type="number" name="nomineemobile" id="mobile" size="40"
-                                                   aria-invalid="false" aria-required="true"/>
+                                            <input placeholder="Nominee's Mobile / নমিনীর মোবাইল" type="number" name="mobile_no" id="mobile" size="40"
+                                                   aria-invalid="false" aria-required="true" value="{{$nominee->mobile_no or ''}}"/>
                                         </div>
 
                                         <div class="column one">
                                             <button type="submit" class="btn btn-primary" size="20"
-                                                    aria-required="true" aria-invalid="false">Add Nominee Information</button>
+                                                    aria-required="true" aria-invalid="false">Add Your Images</button>
                                         </div>
 
                                     </form>

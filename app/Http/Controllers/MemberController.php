@@ -30,52 +30,7 @@ class MemberController extends Controller
         $members = (new Member)->where('status', 1)->get();
         return view('admin.members.index', compact('title', 'members'));
     }
-    public function memberRegistrationFirstShow(Request $request)
-    {
-        $member = $request->session()->get('member');
-        $nominee = $request->session()->get('nominee');
-        return view('landing.memberreg_first',compact('member','nominee'));
-    }
-    public function memberRegistrationFirstStore(Request $request)
-    {
-        $validatedData = $request->validate([
-            'nid' => 'required|unique:members|numeric',
-            'name' => 'required|max:50',
-            'father_name' => 'required|max:50',
-            'mother_name' => 'required|max:50',
-            'hus_wife_name' => 'nullable|max:30',
-            'present_address' => 'required|max:250',
-            'permanent_address' => 'required|max:250',
-            'dob' => 'required|date',
-            'education' => 'required|max:250',
-            'nationality' => 'required|max:30',
-            'profession' => 'required|max:30',
-            'gender' => 'required',
-            'blood_group' => 'required',
-            'mobile_no' => 'required|numeric',
-            'email' => 'required|email',
 
-        ]);
-
-        if(empty($request->session()->get('member'))){
-            $member= new Member();
-            $member->fill($validatedData);
-            $request->session()->put('member', $member);
-        }else{
-            $member = $request->session()->get('member');
-            $member->fill($validatedData);
-            $request->session()->put('member', $member);
-        }
-
-        return redirect('/become-member-2');
-
-    }
-    public function memberRegistrationSecondShow(Request $request)
-    {
-        $member = $request->session()->get('member');
-        $nominee = $request->session()->get('nominee');
-        return view('landing.memberreg_second',compact('member','nominee'));
-    }
     /**
      * Show the form for creating a new resource.
      *

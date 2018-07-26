@@ -29,11 +29,11 @@ Route::post('/admin/member/active', 'MemberController@active')->name('make-activ
 Route::post('/admin/member/inactive', 'MemberController@inactive')->name('make-inactive');
 
 //Member Registration Multi page Form
-Route::get('/become-member-1','MemberController@memberRegistrationFirstShow');
-Route::post('/become-member-1','MemberController@memberRegistrationFirstStore');
+Route::get('/member-reg-info','Member\MemberRegistrationController@memberRegistrationShow');
+Route::post('/member-reg-info','Member\MemberRegistrationController@memberRegistrationStore');
 
-Route::get('/become-member-2','MemberController@memberRegistrationSecondShow');
-Route::post('/become-member-2','MemberController@memberRegistrationSecondStore');
+Route::get('/nominee-reg-info','Member\MemberRegistrationController@nomineeRegistrationShow');
+Route::post('/nominee-reg-info','Member\MemberRegistrationController@nomineeRegistrationStore');
 
-Route::get('/become-member-3','MemberController@memberRegistrationThirdShow');
-Route::post('/become-member-3','MemberController@memberRegistrationThirdStore');
+Route::get('/member-image','MemberController@memberRegistrationThirdShow');
+Route::post('/member-store','MemberController@memberRegistrationThirdStore');
