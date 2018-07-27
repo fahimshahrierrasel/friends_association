@@ -33,7 +33,7 @@ class CreateMembersTable extends Migration
             $table->string('email', 100)->nullable();
             $table->string('member_image', 255);
             $table->string('member_nid', 255);
-            $table->boolean("status")->default(0);
+            $table->integer("status")->default(0);
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
