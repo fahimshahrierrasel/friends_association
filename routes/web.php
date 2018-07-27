@@ -34,5 +34,5 @@ Route::post('/member-reg-info','Member\MemberRegistrationController@memberRegist
 Route::get('/nominee-reg-info','Member\MemberRegistrationController@nomineeRegistrationShow');
 Route::post('/nominee-reg-info','Member\MemberRegistrationController@nomineeRegistrationStore');
 
-Route::get('/member-image','MemberController@memberRegistrationThirdShow');
-Route::post('/member-store','MemberController@memberRegistrationThirdStore');
+Route::get('/member-image','Member\MemberRegistrationController@memberImageShow');
+Route::post('/member-store','Member\MemberRegistrationController@memberStore');

@@ -8,8 +8,9 @@ class Member extends Model
 {
     //
     protected $fillable = [
-        'nid', 'name', 'father_name', 'mother_name', 'hus_wife_name', 'present_address', 'permanent_address', 'dob',
-        'education', 'nationality','profession', 'gender', 'blood_group', 'mobile_no', 'email', 'image', 'status', 'user_id'
+        'nid', 'uuid', 'name', 'father_name', 'mother_name', 'hus_wife_name', 'present_address', 'permanent_address', 'dob',
+        'education', 'nationality','profession', 'gender', 'blood_group', 'mobile_no', 'email', 'member_image', 'member_nid',
+        'status', 'user_id'
     ];
 
     public function nominee()

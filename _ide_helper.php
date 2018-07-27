@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.28 on 2018-07-23 15:23:08.
+ * Generated for Laravel 5.6.28 on 2018-07-27 09:16:46.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -12485,6 +12485,14 @@ namespace Illuminate\Support\Facades {
  
 }
 
+namespace Webpatser\Uuid { 
+
+    class Uuid {
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -14828,6 +14836,8 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Uuid extends \Webpatser\Uuid\Uuid {}
  
 }
 
