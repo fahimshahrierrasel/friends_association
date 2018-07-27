@@ -97,7 +97,7 @@
         </div>
         <div class="col-lg-3">
             <div class="panel panel-default">
-                <img src="{{ url('/images/member/profile_image') }}/{{ $member->image }}" class="img-responsive"
+                <img src="{{ url('/images/member_images') }}/{{ $member->member_image }}" class="img-responsive"
                      style="width: 400px;"
                      alt="Member Image">
                 <!-- /.panel-body -->
