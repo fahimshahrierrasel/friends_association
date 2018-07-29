@@ -26,7 +26,7 @@
 
             <div class="tab-content">
                 <div id="mem_info" class="tab-pane fade in active" style="padding: 10px">
-                    <div class="table-responsive" >
+                    <div class="table-responsive">
                         <table class="table table-borderless">
                             <tbody>
                             <tr>
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div id="nom_info" class="tab-pane fade" style="padding: 10px">
-                    <div class="table-responsive" >
+                    <div class="table-responsive">
                         <table class="table table-borderless">
                             <tbody>
                             <tr>
@@ -161,22 +161,17 @@
                 <div class="panel-body text-center">
                     @if($member->status == "0")
                         {{--Form and Link to active an active member--}}
-                        <a href="{{ route('make-active') }}" class="btn btn-outline btn-block btn-primary"
-                           onclick="event.preventDefault(); document.getElementById('active-form').submit();">
+                        <a href="{{ url('/admin/member/active/') }}/{{ $member->id }}"
+                           class="btn btn-outline btn-block btn-primary">
                             Active
                         </a>
-                        <form id="active-form" action="{{ route('make-active') }}" method="POST"
-                              style="display: none;">
-                            @csrf
-                            <input name="id" value="{{ $member->id }}">
-                        </form>
                     @else
                         {{--Form and Link to inactive an active member--}}
                         <a href="{{ route('make-inactive') }}" class="btn btn-outline btn-block btn-danger"
                            onclick="event.preventDefault(); document.getElementById('inactive-form').submit();">
                             Inactive
                         </a>
-                        <form id="active-form" action="{{ route('make-inactive') }}" method="POST"
+                        <form id="inactive-form" action="{{ route('make-inactive') }}" method="POST"
                               style="display: none;">
                             @csrf
                             <input name="id" value="{{ $member->id }}">

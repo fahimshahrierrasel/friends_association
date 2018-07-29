@@ -17,8 +17,8 @@ class CreateMemberAccountsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('member_id');
             $table->integer('share_no');
-            $table->decimal('balance');
-            $table->decimal('profit');
+            $table->decimal('balance')->default(0.00);
+            $table->decimal('profit')->default(0.00);
             $table->foreign('member_id')->references('id')->on('members');
             $table->timestamps();
         });

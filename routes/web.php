@@ -24,6 +24,7 @@ Route::get('/admin/dashboard', 'AdminController@index')->name('home');
 Route::get('/admin/member-requests', 'MemberController@memberRequests')->name('member-requests');
 Route::get('/admin/registered-members', 'MemberController@registeredMembers')->name('registered-members');
 Route::get('/admin/member/{id}', 'MemberController@show');
+Route::get('/admin/member/active/{id}', 'MemberController@activeShow');
 Route::post('/admin/member/active', 'MemberController@active')->name('make-active');
 Route::post('/admin/member/inactive', 'MemberController@inactive')->name('make-inactive');
 
