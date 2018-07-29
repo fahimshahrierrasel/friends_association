@@ -4,11 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MemberAccount extends Model
+class Installment extends Model
 {
     //
-    public function member()
-    {
+    public function member() {
         return $this->belongsTo(Member::class);
     }
 }
