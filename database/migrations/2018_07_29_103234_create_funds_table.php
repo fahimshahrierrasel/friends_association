@@ -16,7 +16,7 @@ class CreateFundsTable extends Migration
         Schema::create('funds', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->decimal('amount');
+            $table->decimal('balance');
             $table->timestamps();
         });
     }

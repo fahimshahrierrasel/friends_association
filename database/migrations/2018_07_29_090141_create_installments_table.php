@@ -18,6 +18,7 @@ class CreateInstallmentsTable extends Migration
             $table->unsignedInteger('member_id');
             $table->decimal('amount');
             $table->boolean('late_fee')->default(0);
+            $table->dateTime('installment_time');
             $table->foreign('member_id')->references('id')->on('members');
             $table->timestamps();
         });
