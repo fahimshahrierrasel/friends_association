@@ -100,6 +100,18 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
+                        <a href="#"><i class="fa fa-users fa-fw"></i> Installments<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ route('new_installment') }}">New Installment</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('installments') }}">All Installment</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
                         <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
                     </li>
                     <li>

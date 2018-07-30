@@ -2,10 +2,10 @@
 
 @section('additional_css')
     <!-- DataTables CSS -->
-    <link href="{{ asset('vendor/datatables-plugins/dataTables.bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/vendor/datatables-plugins/dataTables.bootstrap.css') }}" rel="stylesheet">
 
     <!-- DataTables Responsive CSS -->
-    <link href="{{ asset('vendor/datatables-responsive/dataTables.responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/vendor/datatables-responsive/dataTables.responsive.css') }}" rel="stylesheet">
 @endsection
 
 @section('page_header', $title)
@@ -51,9 +51,9 @@
 @endsection
 
 @section('additional_js')
-    <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('vendor/datatables-plugins/dataTables.bootstrap.min.js') }}"></script>
-    <script src="{{ asset('vendor/datatables-responsive/dataTables.responsive.js') }}"></script>
+    <script src="{{ asset('/assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/assets/vendor/datatables-plugins/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/assets/vendor/datatables-responsive/dataTables.responsive.js') }}"></script>
 
     <script>
         $(document).ready(function () {
