@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Installment;
 use App\Member;
 use App\MemberAccount;
+use DB;
 use Illuminate\Http\Request;
 
 class InstallmentController extends Controller
@@ -16,12 +17,19 @@ class InstallmentController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     public function create()
     {
-        //
+        $memberInstallments = DB::table('members')
+            ->leftJoin('member_accounts', 'members.id', '=', 'member_accounts.member_id')
+            ->leftJoin(DB::raw('(Select count(id) as count, member_id From installments Group By member_id) As inm'), 'members.id', '=', 'inm.member_id')
+            ->selectRaw(
+                'inm.count, members.id as id, members.name, members.mobile_no, member_accounts.share_no, member_accounts.balance')
+            ->where('members.status', '=', 1)
+            ->get();
+        return view('admin.installments.index', compact('memberInstallments'));
     }
 
     /**

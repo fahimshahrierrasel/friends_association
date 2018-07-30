@@ -9,11 +9,12 @@
                 <div class="panel-body">
                     <form method="POST" action="">
                         @csrf
+                        <input name="id" class="hidden" value="{{ $member->id }}">
                         <div class="form-group">
                             <label for="amount">Amount</label>
                             <div class="input-group">
                                 <div class="input-group-addon">$</div>
-                                <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount">
+                                <input type="text" class="form-control" id="amount" name="amount" value="{{ $memberAccount->share_no * 1000 }}" placeholder="Amount">
                             </div>
                         </div>
                         <div class="form-group">
