@@ -42,3 +42,4 @@ Route::post('/member-store','Member\MemberRegistrationController@memberStore');
 Route::get('/admin/installments', 'InstallmentController@index')->name('installments');
 Route::get('/admin/installments/new', 'InstallmentController@create')->name('new_installment');
 Route::get('/admin/installment/add/{id}', 'InstallmentController@createInstallment');
+Route::post('/admin/installment/store', 'InstallmentController@store');

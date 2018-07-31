@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('additional_css')
+    <link rel="stylesheet" href="{{asset('/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}" />
+    @endsection
 @section('page_header', 'Installment')
 
 @section('content')
@@ -7,25 +9,25 @@
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{action("InstallmentController@store")}}">
                         @csrf
                         <input name="id" class="hidden" value="{{ $member->id }}">
                         <div class="form-group">
                             <label for="amount">Amount</label>
                             <div class="input-group">
                                 <div class="input-group-addon">$</div>
-                                <input type="text" class="form-control" id="amount" name="amount" value="{{ $memberAccount->share_no * 1000 }}" placeholder="Amount">
+                                <input type="text" class="form-control" id="amount" name="amount" value="{{ $memberAccount->share_no * 1000 }}" placeholder="Amount" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="installment_date">Installment Date</label>
-                            <input type="date" class="form-control" name="installment_date" id="installment_date">
+                            <input type="text" class="form-control" name="installment_date" id="installment_date" required>
                         </div>
 
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox"> Late Fee
+                                    <input type="checkbox" name="late_fee" value="50"> Late Fee
                                 </label>
                             </div>
                         </div>
@@ -84,3 +86,15 @@
     </div>
 
 @endsection
+@section('additional_js')
+    <script src="{{ asset('/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#installment_date').datepicker({
+                format: "yyyy-mm-dd",
+                orientation: 'bottom'
+            });
+            $('#installment_date').datepicker("setDate", new Date().toISOString().slice(0,10));
+        });
+    </script>
+    @endsection
