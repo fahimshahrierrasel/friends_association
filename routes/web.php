@@ -43,3 +43,5 @@ Route::get('/admin/installments', 'InstallmentController@index')->name('installm
 Route::get('/admin/installments/new', 'InstallmentController@create')->name('new_installment');
 Route::get('/admin/installment/add/{id}', 'InstallmentController@createInstallment');
 Route::post('/admin/installment/store', 'InstallmentController@store');
+Route::get('/admin/installment/edit/{id}/{installment_id}', 'InstallmentController@editInstallment');
+Route::post('/admin/installment/update', 'InstallmentController@update');
