@@ -37,3 +37,9 @@ Route::post('/nominee-reg-info','Member\MemberRegistrationController@nomineeRegi
 
 Route::get('/member-image','Member\MemberRegistrationController@memberImageShow');
 Route::post('/member-store','Member\MemberRegistrationController@memberStore');
+
+// Installments
+Route::get('/admin/installments', 'InstallmentController@index')->name('installments');
+Route::get('/admin/installments/new', 'InstallmentController@create')->name('new_installment');
+Route::get('/admin/installment/add/{id}', 'InstallmentController@createInstallment');
+Route::post('/admin/installment/store', 'InstallmentController@store');

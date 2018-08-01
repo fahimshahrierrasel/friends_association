@@ -179,7 +179,7 @@
 
                         <a href="{{ url('/admin/member/edit') }}/{{ $member->id }}"
                            class="btn btn-outline btn-block btn-warning" style="margin-top: 5px">Edit</a>
-                        <a href="{{ url('/admin/member/installment') }}/{{ $member->id }}"
+                        <a href="{{ url('/admin/installment/add') }}/{{ $member->id }}"
                            class="btn btn-outline btn-block btn-success" style="margin-top: 5px">Installment</a>
                     @endif
                 </div>

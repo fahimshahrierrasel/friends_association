@@ -23,7 +23,7 @@ class FundTableSeed extends Seeder
         $reserveFund->save();
 
         $investmentFund = new Fund();
-        $investmentFund->name = "Reserve Fund";
+        $investmentFund->name = "Invest Fund";
         $investmentFund->balance = 0.00;
         $investmentFund->save();
     }

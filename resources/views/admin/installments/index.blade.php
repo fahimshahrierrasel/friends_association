@@ -8,7 +8,7 @@
     <link href="{{ asset('/assets/vendor/datatables-responsive/dataTables.responsive.css') }}" rel="stylesheet">
 @endsection
 
-@section('page_header', $title)
+@section('page_header', 'New Installments')
 
 @section('content')
     <div class="row">
@@ -23,20 +23,20 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Father Name</th>
-                            <th>DOB</th>
-                            <th>Profession</th>
                             <th>Mobile No</th>
+                            <th>Total Share</th>
+                            <th>Balance</th>
+                            <th>Total Installment</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($members as $member)
+                        @foreach($memberInstallments as $member)
                             <tr>
-                                <td><a href="{{ url('/admin/member') }}/{{ $member->id }}">{{ $member->name }}</a></td>
-                                <td>{{ $member->father_name }}</td>
-                                <td>{{ $member->dob }}</td>
-                                <td>{{ $member->profession }}</td>
+                                <td><a href="{{ url('/admin/installment/add') }}/{{ $member->id }}">{{ $member->name }}</a></td>
                                 <td>{{ $member->mobile_no }}</td>
+                                <td>{{ $member->share_no }}</td>
+                                <td>{{ $member->balance }}</td>
+                                <td>{{ $member->count == null ? 0 : $member->count }}</td>
                             </tr>
                         @endforeach
                         </tbody>
