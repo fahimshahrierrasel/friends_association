@@ -9,25 +9,26 @@
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form method="POST" action="{{action("InstallmentController@store")}}">
+                    <form method="POST" action="{{empty($currentInstallment) ? action("InstallmentController@store") : action("InstallmentController@update")}}">
                         @csrf
                         <input name="id" class="hidden" value="{{ $member->id }}">
+                        <input name="installment_id" class="hidden" value="{{ empty($currentInstallment) ?:$currentInstallment->id }}">
                         <div class="form-group">
                             <label for="amount">Amount</label>
                             <div class="input-group">
                                 <div class="input-group-addon">$</div>
-                                <input type="text" class="form-control" id="amount" name="amount" value="{{ $memberAccount->share_no * 1000 }}" placeholder="Amount" required>
+                                <input type="text" class="form-control" id="amount" name="amount" value="{{empty($currentInstallment) ? ($memberAccount->share_no * 1000) : $currentInstallment->amount}}" placeholder="Amount" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="installment_date">Installment Date</label>
-                            <input type="text" class="form-control" name="installment_date" id="installment_date" required>
+                            <input type="text" class="form-control" name="installment_date" id="installment_date" value="{{empty($currentInstallment) ? :$currentInstallment->installment_date}}" required>
                         </div>
 
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="late_fee" value="50"> Late Fee
+                                    <input type="checkbox" name="late_fee" value="50" {{!empty($currentInstallment) && ($currentInstallment->late_fee===1)?"checked":""}}> Late Fee
                                 </label>
                             </div>
                         </div>
@@ -94,7 +95,13 @@
                 format: "yyyy-mm-dd",
                 orientation: 'bottom'
             });
-            $('#installment_date').datepicker("setDate", new Date().toISOString().slice(0,10));
+            var dateVal = $('#installment_date').val();
+            if(dateVal==""){
+                $('#installment_date').datepicker("setDate", new Date().toISOString().slice(0,10));
+            }
+            else{
+                $('#installment_date').datepicker("setDate", '{{empty($currentInstallment) ? :$currentInstallment->installment_date}}');
+            }
         });
     </script>
     @endsection
