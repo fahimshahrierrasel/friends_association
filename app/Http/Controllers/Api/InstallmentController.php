@@ -11,9 +11,9 @@ class InstallmentController extends Controller
     public function allInstallments($id)
     {
         $installments = (new Installment)
-            ->select('amount', 'installment_date')
+            ->select('amount', 'installment_date', 'late_fee')
             ->where('member_id', '=', $id)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('installment_date', 'desc')
             ->get();
         return response()->json($installments, 200);
     }

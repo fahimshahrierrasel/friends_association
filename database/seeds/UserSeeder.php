@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
         $admin_user = new User();
         $admin_user->name = 'Admin';
         $admin_user->email = 'admin@rightbizbd.com';
-        $admin_user->mobile_no = '01111111111';
+        $admin_user->mobile_no = '01620152200';
         $admin_user->password = bcrypt('admin');
         $admin_user->role = "admin";
         $admin_user->status = 1;

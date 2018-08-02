@@ -28,10 +28,10 @@ class MemberTableSeeder extends Seeder
             $member->gender = "Male";
             $member->profession = "Private Service";
             $member->blood_group = "A+";
-            $member->mobile_no = "0155789784" . $i;
+            $member->mobile_no = "0155123456" . $i;
             $member->email = "johndoe" . $i . "@example.com";
-            $member->member_image = "";
-            $member->member_nid = "";
+            $member->member_image = "21554070646.png";
+            $member->member_nid = "1231231231231231233.png";
             $member->save();
 
             $nominee = new Nominee();
@@ -43,7 +43,7 @@ class MemberTableSeeder extends Seeder
             $nominee->dob = "199" . $i . "-07-11";
             $nominee->relation = "Brother";
             $nominee->profession = "Private Service";
-            $nominee->mobile_no = "0155789784" . $i;
+            $nominee->mobile_no = "0155123456" . $i;
 
             $member->nominee()->save($nominee);
         }
