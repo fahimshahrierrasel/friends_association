@@ -6,7 +6,9 @@ use App\Member;
 use App\Nominee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade as PDF;
 use Uuid;
+use App;
 
 class MemberRegistrationController extends Controller
 {
@@ -123,6 +125,22 @@ class MemberRegistrationController extends Controller
         $request->session()->flush();
 
         return redirect('/member-reg-info')
-            ->with('success', 'Your request submitted <strong>Friend\'s Association</strong> contact with you shortly.');
+            ->with('success', 'Your request submitted <strong>Friend\'s Association</strong> contact with you shortly.')
+            ->with('member_id',$member->id);
+    }
+
+    public function BuildFormPdf($id)
+    {
+        $member = \App\Member::find($id);
+        $nominee = \App\Nominee::where('member_id','=',$member->id)->first();
+        //dd($member,$nominee);
+        //$pdf = PDF::loadView('pdf.simple_member_form',compact('member','nominee'));
+        //return $pdf->download('form'.$member->id.'.pdf');
+        //$pdf = PDF::loadView('pdf.member_form', compact('member','nominee'));
+        //return $pdf->download('form.pdf');
+        $pdf = App::make('dompdf.wrapper');
+        $html = view('pdf.simple_member_form',compact('member','nominee'))->render();
+        $pdf->loadHTML($html);
+        return $pdf->stream();
     }
 }
