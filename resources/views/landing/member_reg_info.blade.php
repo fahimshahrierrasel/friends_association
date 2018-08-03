@@ -15,6 +15,7 @@
                     @if (Session::has('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Success!</strong> {!! Session::get('success') !!}
+                            <strong><a href="{{url('/member/formpdf/'.Session::get('member_id'))}}">Click Here to download the form in pdf!</a></strong>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

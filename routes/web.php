@@ -37,6 +37,8 @@ Route::post('/nominee-reg-info','Member\MemberRegistrationController@nomineeRegi
 
 Route::get('/member-image','Member\MemberRegistrationController@memberImageShow');
 Route::post('/member-store','Member\MemberRegistrationController@memberStore');
+//Member Registration Form
+Route::get('/member/formpdf/{id}','Member\MemberRegistrationController@BuildFormPdf');
 
 // Installments
 Route::get('/admin/installments', 'InstallmentController@index')->name('installments');
